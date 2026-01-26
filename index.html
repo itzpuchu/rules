@@ -15,30 +15,34 @@
   body.light .card { background:#fff; color:#111; }
   body.light .btn { background:#4f6bff; color:#fff; }
 
-  /* ===== Buttons ===== */
-  .btn { padding:16px 32px; background:#4f6bff; color:#fff; border-radius:12px; font-weight:bold; display:inline-block; transition:0.3s; }
-  .btn:hover { opacity:0.85; }
-
-  /* ===== Container ===== */
-  .container { max-width:1200px; margin:0 auto; padding:0 20px; }
-
-  /* ===== Header ===== */
-  header {
-    height:100vh;
+  /* ===== Navbar ===== */
+  nav {
+    position:fixed;
+    top:0; left:0; width:100%;
+    background:#11162a;
     display:flex;
-    flex-direction:column;
     justify-content:center;
-    align-items:center;
-    text-align:center;
-    background: linear-gradient(135deg,#0b1020,#0f1433);
-    position:relative;
+    gap:20px;
+    padding:15px 0;
+    z-index:999;
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
   }
-  header h1 { font-size:72px; color:#4f6bff; letter-spacing:6px; margin-bottom:20px; }
-  header p { font-size:20px; margin-bottom:40px; color:#aaa; letter-spacing:2px; }
+  nav button {
+    background:none;
+    border:none;
+    color:#eee;
+    font-weight:bold;
+    padding:10px 20px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+  }
+  nav button:hover, nav button.active { color:#4f6bff; }
 
   /* ===== Sections ===== */
-  section { padding:80px 0; }
-  section h2 { text-align:center; font-size:40px; color:#4f6bff; margin-bottom:40px; }
+  section { display:none; padding:100px 20px; min-height:100vh; text-align:center; transition:opacity 0.5s; }
+  section.active { display:block; }
+  section h2 { font-size:40px; color:#4f6bff; margin-bottom:40px; }
 
   /* ===== Cards ===== */
   .cards { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
@@ -84,19 +88,22 @@
   .countdown { display:flex; justify-content:center; gap:20px; font-size:24px; margin-top:20px; }
   .countdown div { background:#11162a; padding:20px; border-radius:12px; min-width:70px; text-align:center; }
 
+  /* ===== Buttons ===== */
+  .btn { padding:16px 32px; background:#4f6bff; color:#fff; border-radius:12px; font-weight:bold; display:inline-block; transition:0.3s; }
+  .btn:hover { opacity:0.85; }
+
   /* ===== Footer ===== */
   footer { background:#0f1433; text-align:center; padding:30px 0; color:#777; font-size:14px; }
 
-  /* ===== Responsive ===== */
-  @media(max-width:768px){
-    header h1 { font-size:48px; }
-    section h2 { font-size:32px; }
-    .cards, .leaderboard { flex-direction:column; align-items:center; }
-  }
-
-  /* ===== Dark/Light Toggle Button ===== */
+  /* ===== Dark/Light Toggle ===== */
   .mode-toggle { position:fixed; top:20px; right:20px; padding:10px 16px; background:#4f6bff; color:#fff; border-radius:10px; cursor:pointer; z-index:999; transition:0.3s;}
   .mode-toggle:hover { opacity:0.85; }
+
+  @media(max-width:768px){
+    section h2 { font-size:32px; }
+    .cards, .leaderboard { flex-direction:column; align-items:center; }
+    .gallery img { width:90%; height:150px; }
+  }
 </style>
 </head>
 <body>
@@ -104,9 +111,18 @@
 <!-- Dark/Light Mode Toggle -->
 <div class="mode-toggle" onclick="toggleMode()">Toggle Mode</div>
 
-<!-- Hero -->
-<header>
-  <h1>RESPAWNRIOT</h1>
+<!-- Navbar -->
+<nav>
+  <button class="active" data-target="home">Home</button>
+  <button data-target="rules">Rules</button>
+  <button data-target="faq">FAQ</button>
+  <button data-target="gallery">Gallery</button>
+  <button data-target="leaderboard">Leaderboard</button>
+</nav>
+
+<!-- Sections -->
+<section id="home" class="active">
+  <h2>RESPAWNRIOT</h2>
   <p>Competitive • Chill • No Drama</p>
   <a class="btn" href="https://discord.gg/YOURINVITECODE" target="_blank">Join Discord</a>
   <div class="countdown" id="countdown">
@@ -115,10 +131,9 @@
     <div><span id="minutes">00</span><br>Minutes</div>
     <div><span id="seconds">00</span><br>Seconds</div>
   </div>
-</header>
+</section>
 
-<!-- Rules Section -->
-<section>
+<section id="rules">
   <h2>Rules</h2>
   <div class="cards">
     <div class="card">
@@ -140,17 +155,16 @@
   </div>
 </section>
 
-<!-- FAQ Section -->
-<section>
+<section id="faq">
   <h2>FAQ</h2>
   <div class="faq">
     <div class="faq-item" onclick="toggleFaq(this)">
       <h4>How do I join the server?</h4>
-      <p>Click the Join Discord button at the top to get an invite link.</p>
+      <p>Click the Join Discord button in Home section to get an invite.</p>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <h4>Are there tournaments?</h4>
-      <p>Yes! We host events and tournaments regularly for all members.</p>
+      <p>Yes! We host events and tournaments regularly.</p>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <h4>Can I get custom roles?</h4>
@@ -159,8 +173,7 @@
   </div>
 </section>
 
-<!-- Gallery Section -->
-<section>
+<section id="gallery">
   <h2>Gallery</h2>
   <div class="gallery">
     <img src="https://picsum.photos/200/120?1" alt="Placeholder">
@@ -170,8 +183,7 @@
   </div>
 </section>
 
-<!-- Leaderboard Section -->
-<section>
+<section id="leaderboard">
   <h2>Leaderboard</h2>
   <div class="leaderboard">
     <div class="player"><h4>Player1</h4> <p>1500 pts</p></div>
@@ -181,35 +193,27 @@
   </div>
 </section>
 
-<!-- Footer -->
 <footer>
   &copy; 2026 RespawnRiot • All rights reserved
 </footer>
 
 <script>
   // ===== Dark/Light Mode Toggle =====
-  function toggleMode(){
-    document.body.classList.toggle('light');
-  }
+  function toggleMode(){ document.body.classList.toggle('light'); }
 
   // ===== FAQ Toggle =====
-  function toggleFaq(item){
-    item.classList.toggle('active');
-  }
+  function toggleFaq(item){ item.classList.toggle('active'); }
 
   // ===== Countdown Timer =====
   const targetDate = new Date();
   targetDate.setDate(targetDate.getDate()+5); // Example: 5 days from now
-
   function updateCountdown(){
     const now = new Date().getTime();
     const distance = targetDate - now;
-
     const days = Math.floor(distance/(1000*60*60*24));
     const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
     const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
     const seconds = Math.floor((distance%(1000*60))/1000);
-
     document.getElementById('days').innerText = String(days).padStart(2,'0');
     document.getElementById('hours').innerText = String(hours).padStart(2,'0');
     document.getElementById('minutes').innerText = String(minutes).padStart(2,'0');
@@ -217,6 +221,22 @@
   }
   setInterval(updateCountdown,1000);
   updateCountdown();
+
+  // ===== Tab Navigation =====
+  const buttons = document.querySelectorAll('nav button');
+  const sections = document.querySelectorAll('section');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active from all buttons
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // Hide all sections
+      sections.forEach(sec => sec.classList.remove('active'));
+      // Show selected
+      const target = document.getElementById(btn.dataset.target);
+      target.classList.add('active');
+    });
+  });
 </script>
 
 </body>
