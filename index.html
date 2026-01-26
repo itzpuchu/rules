@@ -1,56 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RespawnRiot</title>
   <style>
-    html, body {
-      margin: 0;
-      height: 100%;
-      background: #0b1020;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Roboto, sans-serif; background: #0b1020; color: #eee; }
 
+    /* General styles */
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* Hero Section */
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg,#0b1020,#0f1433);
+    }
+    header h1 {
+      font-size: 72px;
+      color: #4f6bff;
+      letter-spacing: 6px;
+      margin-bottom: 20px;
+    }
+    header p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      color: #aaa;
+      letter-spacing: 2px;
+    }
+    .btn {
+      padding: 16px 32px;
+      background: #4f6bff;
+      color: #fff;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover { opacity: 0.85; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+    section h2 {
+      text-align: center;
+      font-size: 40px;
+      color: #4f6bff;
+      margin-bottom: 40px;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
     .card {
       background: #11162a;
-      padding: 60px 80px;
+      padding: 30px 40px;
       border-radius: 20px;
+      width: 300px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-10px); }
+    .card h3 { color: #4f6bff; margin-bottom: 15px; font-size: 24px; }
+    .card p { color: #ccc; font-size: 14px; line-height: 1.6; }
+
+    /* Footer */
+    footer {
+      background: #0f1433;
       text-align: center;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 56px;
-      letter-spacing: 6px;
-      color: #4f6bff;
-    }
-
-    .line {
-      width: 60px;
-      height: 3px;
-      background: #4f6bff;
-      margin: 20px auto;
-      border-radius: 10px;
-    }
-
-    p {
-      margin: 0;
-      color: #aaa;
+      padding: 30px 0;
+      color: #777;
       font-size: 14px;
-      letter-spacing: 2px;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px){
+      header h1 { font-size: 48px; }
+      section h2 { font-size: 32px; }
+      .cards { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>RULES</h1>
-    <div class="line"></div>
-    <p>RESPECT • NO SPAM • NO DRAMA</p>
-  </div>
+
+  <!-- Hero -->
+  <header>
+    <h1>RESPAWNRIOT</h1>
+    <p>Competitive • Chill • No Drama</p>
+    <a class="btn" href="https://discord.gg/YOURINVITECODE" target="_blank">Join Discord</a>
+  </header>
+
+  <!-- Rules Section -->
+  <section>
+    <h2>Rules</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Be Respectful</h3>
+        <p>Treat everyone with respect. No harassment, hate speech, or personal attacks.</p>
+      </div>
+      <div class="card">
+        <h3>No Spam</h3>
+        <p>Keep the channels clean. No excessive messages, self-promo, or irrelevant content.</p>
+      </div>
+      <div class="card">
+        <h3>Follow Staff</h3>
+        <p>Listen to the moderators. Their decisions are final for the safety of the server.</p>
+      </div>
+      <div class="card">
+        <h3>No NSFW</h3>
+        <p>Keep the server safe for everyone. NSFW content is strictly prohibited.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features / Perks Section -->
+  <section>
+    <h2>Server Perks</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Active Community</h3>
+        <p>Join a community that plays, chats, and vibes together every day.</p>
+      </div>
+      <div class="card">
+        <h3>Events & Tournaments</h3>
+        <p>Participate in fun events, tournaments, and challenges with friends.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Roles</h3>
+        <p>Get roles to show your style, interests, and game preferences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 RespawnRiot • All rights reserved
+  </footer>
+
 </body>
 </html>
