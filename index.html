@@ -5,105 +5,149 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RespawnRiot</title>
 <style>
-  /* ===== Reset & Global ===== */
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Segoe UI', Roboto, sans-serif; background:#0b1020; color:#eee; transition: background 0.3s, color 0.3s; }
-  a { text-decoration:none; color:inherit; }
+/* ===== Reset & Global ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI', Roboto, sans-serif; background:#0b1020; color:#eee; transition: background 0.3s, color 0.3s; }
+a { text-decoration:none; color:inherit; }
 
-  /* ===== Dark/Light Mode ===== */
-  body.light { background:#f5f5f5; color:#111; }
-  body.light .card { background:#fff; color:#111; }
-  body.light .btn { background:#4f6bff; color:#fff; }
+/* ===== Dark/Light Mode ===== */
+body.light { background:#f5f5f5; color:#111; }
+body.light .card { background:#fff; color:#111; }
+body.light .btn { background:#4f6bff; color:#fff; }
 
-  /* ===== Navbar ===== */
-  nav {
-    position:fixed;
-    top:0; left:0; width:100%;
-    background:#11162a;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    padding:15px 0;
-    z-index:999;
-    box-shadow:0 5px 20px rgba(0,0,0,0.4);
-  }
-  nav button {
-    background:none;
-    border:none;
-    color:#eee;
-    font-weight:bold;
-    padding:10px 20px;
-    cursor:pointer;
-    font-size:16px;
-    transition:0.3s;
-  }
-  nav button:hover, nav button.active { color:#4f6bff; }
+/* ===== Navbar ===== */
+nav {
+  position:fixed;
+  top:0; left:0; width:100%;
+  background:#11162a;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:15px 0;
+  z-index:999;
+  box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+nav button {
+  background:none;
+  border:none;
+  color:#eee;
+  font-weight:bold;
+  padding:10px 20px;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
+}
+nav button:hover, nav button.active { color:#4f6bff; }
 
-  /* ===== Sections ===== */
-  section { display:none; padding:100px 20px; min-height:100vh; text-align:center; transition:opacity 0.5s; }
-  section.active { display:block; }
-  section h2 { font-size:40px; color:#4f6bff; margin-bottom:40px; }
+/* ===== Sections ===== */
+section { display:none; padding:100px 20px; min-height:100vh; text-align:center; transition:opacity 0.5s; }
+section.active { display:block; }
+section h2 { font-size:40px; color:#4f6bff; margin-bottom:40px; }
 
-  /* ===== Cards ===== */
-  .cards { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
-  .card {
-    background:#11162a;
-    padding:30px 40px;
-    border-radius:20px;
-    width:300px;
-    box-shadow:0 20px 60px rgba(0,0,0,0.5);
-    transition:transform 0.3s;
-  }
-  .card:hover { transform:translateY(-10px); }
-  .card h3 { color:#4f6bff; margin-bottom:15px; font-size:24px; }
-  .card p { color:#ccc; font-size:14px; line-height:1.6; }
+/* ===== Cards ===== */
+.cards { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+.card {
+  background:#11162a;
+  padding:30px 40px;
+  border-radius:20px;
+  width:300px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  transition:transform 0.3s;
+}
+.card:hover { transform:translateY(-10px); }
+.card h3 { color:#4f6bff; margin-bottom:15px; font-size:24px; }
+.card p { color:#ccc; font-size:14px; line-height:1.6; }
 
-  /* ===== Gallery ===== */
-  .gallery { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-  .gallery img { width:200px; height:120px; object-fit:cover; border-radius:12px; transition:0.3s; }
-  .gallery img:hover { transform:scale(1.05); }
+/* ===== Gallery ===== */
+.gallery { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+.gallery img { width:200px; height:120px; object-fit:cover; border-radius:12px; transition:0.3s; }
+.gallery img:hover { transform:scale(1.05); }
 
-  /* ===== Leaderboard ===== */
-  .leaderboard { display:flex; justify-content:center; flex-wrap:wrap; gap:20px; }
-  .leaderboard .player {
-    background:#11162a;
-    padding:20px;
-    border-radius:16px;
-    width:180px;
-    text-align:center;
-    box-shadow:0 15px 50px rgba(0,0,0,0.4);
-    transition:0.3s;
-  }
-  .leaderboard .player:hover { transform:translateY(-10px); }
-  .player h4 { color:#4f6bff; margin-bottom:10px; }
+/* ===== Leaderboard ===== */
+.leaderboard { display:flex; justify-content:center; flex-wrap:wrap; gap:20px; }
+.leaderboard .player {
+  background:#11162a;
+  padding:20px;
+  border-radius:16px;
+  width:180px;
+  text-align:center;
+  box-shadow:0 15px 50px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
+.leaderboard .player:hover { transform:translateY(-10px); }
+.player h4 { color:#4f6bff; margin-bottom:10px; }
 
-  /* ===== FAQ ===== */
-  .faq { max-width:800px; margin:0 auto; }
-  .faq-item { background:#11162a; padding:20px; border-radius:16px; margin-bottom:15px; cursor:pointer; transition:0.3s; }
-  .faq-item:hover { background:#1b1f38; }
-  .faq-item p { display:none; margin-top:10px; color:#ccc; }
-  .faq-item.active p { display:block; }
+/* ===== FAQ ===== */
+.faq { max-width:800px; margin:0 auto; }
+.faq-item { background:#11162a; padding:20px; border-radius:16px; margin-bottom:15px; cursor:pointer; transition:0.3s; }
+.faq-item:hover { background:#1b1f38; }
+.faq-item p { display:none; margin-top:10px; color:#ccc; }
+.faq-item.active p { display:block; }
 
-  /* ===== Countdown ===== */
-  .countdown { display:flex; justify-content:center; gap:20px; font-size:24px; margin-top:20px; }
-  .countdown div { background:#11162a; padding:20px; border-radius:12px; min-width:70px; text-align:center; }
+/* ===== Countdown ===== */
+.countdown { display:flex; justify-content:center; gap:20px; font-size:24px; margin-top:20px; }
+.countdown div { background:#11162a; padding:20px; border-radius:12px; min-width:70px; text-align:center; }
 
-  /* ===== Buttons ===== */
-  .btn { padding:16px 32px; background:#4f6bff; color:#fff; border-radius:12px; font-weight:bold; display:inline-block; transition:0.3s; }
-  .btn:hover { opacity:0.85; }
+/* ===== Buttons ===== */
+.btn { padding:16px 32px; background:#4f6bff; color:#fff; border-radius:12px; font-weight:bold; display:inline-block; transition:0.3s; }
+.btn:hover { opacity:0.85; }
 
-  /* ===== Footer ===== */
-  footer { background:#0f1433; text-align:center; padding:30px 0; color:#777; font-size:14px; }
+/* ===== Footer ===== */
+footer { background:#0f1433; text-align:center; padding:30px 0; color:#777; font-size:14px; }
 
-  /* ===== Dark/Light Toggle ===== */
-  .mode-toggle { position:fixed; top:20px; right:20px; padding:10px 16px; background:#4f6bff; color:#fff; border-radius:10px; cursor:pointer; z-index:999; transition:0.3s;}
-  .mode-toggle:hover { opacity:0.85; }
+/* ===== Dark/Light Toggle ===== */
+.mode-toggle { position:fixed; top:20px; right:20px; padding:10px 16px; background:#4f6bff; color:#fff; border-radius:10px; cursor:pointer; z-index:999; transition:0.3s;}
+.mode-toggle:hover { opacity:0.85; }
 
-  @media(max-width:768px){
-    section h2 { font-size:32px; }
-    .cards, .leaderboard { flex-direction:column; align-items:center; }
-    .gallery img { width:90%; height:150px; }
-  }
+/* ===== Hero Animations ===== */
+.hero-title { font-size:72px; color:#4f6bff; display:flex; justify-content:center; gap:4px; margin-bottom:20px; flex-wrap:wrap; }
+.hero-title span { opacity:0; transform:translateY(-50px); display:inline-block; animation:fadeInUp 1s forwards; }
+.hero-title span:nth-child(1){ animation-delay:0s; }
+.hero-title span:nth-child(2){ animation-delay:0.1s; }
+.hero-title span:nth-child(3){ animation-delay:0.2s; }
+.hero-title span:nth-child(4){ animation-delay:0.3s; }
+.hero-title span:nth-child(5){ animation-delay:0.4s; }
+.hero-title span:nth-child(6){ animation-delay:0.5s; }
+.hero-title span:nth-child(7){ animation-delay:0.6s; }
+.hero-title span:nth-child(8){ animation-delay:0.7s; }
+.hero-title span:nth-child(9){ animation-delay:0.8s; }
+.hero-title span:nth-child(10){ animation-delay:0.9s; }
+.hero-title span:nth-child(11){ animation-delay:1s; }
+@keyframes fadeInUp{ to { opacity:1; transform:translateY(0); } }
+
+.hero-subtitle { font-size:20px; color:#aaa; margin-bottom:30px; letter-spacing:2px; }
+
+/* Discord Button Animation */
+.btn { position:relative; animation:pulse 2s infinite; }
+@keyframes pulse{
+  0%,100%{ transform:scale(1); box-shadow:0 0 10px #4f6bff33; }
+  50%{ transform:scale(1.05); box-shadow:0 0 20px #4f6bff66; }
+}
+
+/* Floating Particles */
+.particles { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; }
+.particles div {
+  position:absolute;
+  width:10px;
+  height:10px;
+  background:#4f6bff33;
+  border-radius:50%;
+  animation:float 10s linear infinite;
+  opacity:0.7;
+}
+@keyframes float{
+  0%{ transform:translateY(100vh) translateX(0); opacity:0; }
+  50%{ opacity:1; }
+  100%{ transform:translateY(-20vh) translateX(100vw); opacity:0; }
+}
+
+/* Responsive */
+@media(max-width:768px){
+  section h2 { font-size:32px; }
+  .cards, .leaderboard { flex-direction:column; align-items:center; }
+  .gallery img { width:90%; height:150px; }
+  .hero-title { font-size:48px; }
+}
 </style>
 </head>
 <body>
@@ -120,19 +164,23 @@
   <button data-target="leaderboard">Leaderboard</button>
 </nav>
 
-<!-- Sections -->
-<section id="home" class="active">
-  <h2>RESPAWNRIOT</h2>
-  <p>Competitive • Chill • No Drama</p>
+<!-- Home Section -->
+<section id="home" class="active" style="position:relative; overflow:hidden; padding-top:150px;">
+  <h1 class="hero-title">
+    <span>R</span><span>E</span><span>S</span><span>P</span><span>A</span><span>W</span><span>N</span><span>R</span><span>I</span><span>O</span><span>T</span>
+  </h1>
+  <p class="hero-subtitle">Competitive • Chill • No Drama</p>
   <a class="btn" href="https://discord.gg/YOURINVITECODE" target="_blank">Join Discord</a>
-  <div class="countdown" id="countdown">
+  <div class="countdown" id="countdown" style="margin-top:40px; display:flex; justify-content:center; gap:15px;">
     <div><span id="days">00</span><br>Days</div>
     <div><span id="hours">00</span><br>Hours</div>
     <div><span id="minutes">00</span><br>Minutes</div>
     <div><span id="seconds">00</span><br>Seconds</div>
   </div>
+  <div class="particles"></div>
 </section>
 
+<!-- Rules Section -->
 <section id="rules">
   <h2>Rules</h2>
   <div class="cards">
@@ -155,6 +203,7 @@
   </div>
 </section>
 
+<!-- FAQ Section -->
 <section id="faq">
   <h2>FAQ</h2>
   <div class="faq">
@@ -173,6 +222,7 @@
   </div>
 </section>
 
+<!-- Gallery Section -->
 <section id="gallery">
   <h2>Gallery</h2>
   <div class="gallery">
@@ -183,6 +233,7 @@
   </div>
 </section>
 
+<!-- Leaderboard Section -->
 <section id="leaderboard">
   <h2>Leaderboard</h2>
   <div class="leaderboard">
@@ -198,45 +249,53 @@
 </footer>
 
 <script>
-  // ===== Dark/Light Mode Toggle =====
-  function toggleMode(){ document.body.classList.toggle('light'); }
+// Dark/Light Mode
+function toggleMode(){ document.body.classList.toggle('light'); }
 
-  // ===== FAQ Toggle =====
-  function toggleFaq(item){ item.classList.toggle('active'); }
+// FAQ Toggle
+function toggleFaq(item){ item.classList.toggle('active'); }
 
-  // ===== Countdown Timer =====
-  const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate()+5); // Example: 5 days from now
-  function updateCountdown(){
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-    const days = Math.floor(distance/(1000*60*60*24));
-    const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
-    const seconds = Math.floor((distance%(1000*60))/1000);
-    document.getElementById('days').innerText = String(days).padStart(2,'0');
-    document.getElementById('hours').innerText = String(hours).padStart(2,'0');
-    document.getElementById('minutes').innerText = String(minutes).padStart(2,'0');
-    document.getElementById('seconds').innerText = String(seconds).padStart(2,'0');
-  }
-  setInterval(updateCountdown,1000);
-  updateCountdown();
+// Countdown Timer
+const targetDate = new Date();
+targetDate.setDate(targetDate.getDate()+5);
+function updateCountdown(){
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+  const days = Math.floor(distance/(1000*60*60*24));
+  const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+  const seconds = Math.floor((distance%(1000*60))/1000);
+  document.getElementById('days').innerText = String(days).padStart(2,'0');
+  document.getElementById('hours').innerText = String(hours).padStart(2,'0');
+  document.getElementById('minutes').innerText = String(minutes).padStart(2,'0');
+  document.getElementById('seconds').innerText = String(seconds).padStart(2,'0');
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
 
-  // ===== Tab Navigation =====
-  const buttons = document.querySelectorAll('nav button');
-  const sections = document.querySelectorAll('section');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove active from all buttons
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      // Hide all sections
-      sections.forEach(sec => sec.classList.remove('active'));
-      // Show selected
-      const target = document.getElementById(btn.dataset.target);
-      target.classList.add('active');
-    });
+// Navbar Tabs
+const buttons = document.querySelectorAll('nav button');
+const sections = document.querySelectorAll('section');
+buttons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    sections.forEach(sec=>sec.classList.remove('active'));
+    const target=document.getElementById(btn.dataset.target);
+    target.classList.add('active');
   });
+});
+
+// Floating Particles
+const particlesContainer = document.querySelector('.particles');
+for(let i=0;i<30;i++){
+  const particle = document.createElement('div');
+  particle.style.left = Math.random()*100 + 'vw';
+  particle.style.width = particle.style.height = (Math.random()*8 + 5) + 'px';
+  particle.style.animationDuration = (Math.random()*8 + 5) + 's';
+  particle.style.animationDelay = (Math.random()*5) + 's';
+  particlesContainer.appendChild(particle);
+}
 </script>
 
 </body>
