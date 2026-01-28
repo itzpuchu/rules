@@ -6,10 +6,7 @@
   <title>NovaQuest Staff Rules & Expectations</title>
   <!-- TailwindCSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Heroicons CDN -->
-  <script src="https://unpkg.com/heroicons@2.0.18/dist/heroicons.min.js"></script>
   <style>
-    /* Simple collapse animation */
     .collapse-content {
       max-height: 0;
       overflow: hidden;
@@ -22,17 +19,17 @@
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans">
 
-  <!-- Header -->
+  <!-- Header / Introduction -->
   <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white py-8 shadow-lg">
     <h1 class="text-4xl font-extrabold text-center">NovaQuest Staff Rules & Expectations</h1>
     <p class="text-center mt-3 max-w-3xl mx-auto text-lg text-gray-200">
-      This guide is for staff to understand their higher standards and for players to see that NovaQuest is fully transparent about staff actions, rules, demotions, and community safety.
+      This guide is for staff to understand their higher standards and for players to see that NovaQuest is fully transparent about staff actions, rules, demotions, and community safety. It ensures fairness, clarity, and professionalism for everyone.
     </p>
   </header>
 
   <main class="max-w-5xl mx-auto p-6 space-y-6">
 
-    <!-- Collapsible Card Template -->
+    <!-- General Staff Duties -->
     <section class="bg-gray-800 rounded-2xl shadow-lg p-6 border-l-8 border-indigo-500">
       <button onclick="toggleCollapse('duties')" class="w-full flex items-center justify-between focus:outline-none">
         <div class="flex items-center mb-3">
@@ -63,7 +60,50 @@
               <li>The player is uncooperative as determined by management</li>
             </ul>
           </li>
-          <li>Staff must prioritize staff duties over gameplay but may play only when no duties are pending.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Professional Interaction Rules -->
+    <section class="bg-gray-800 rounded-2xl shadow-lg p-6 border-l-8 border-green-500">
+      <button onclick="toggleCollapse('interaction')" class="w-full flex items-center justify-between focus:outline-none">
+        <div class="flex items-center mb-3">
+          <svg class="h-6 w-6 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+          <h2 class="text-2xl font-bold text-green-300">Professional Interaction Rules</h2>
+        </div>
+        <span class="text-green-300 font-bold">▼</span>
+      </button>
+      <div id="interaction" class="collapse-content mt-2 text-gray-200 space-y-2">
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Staff cannot ignore players or ongoing issues.</li>
+          <li>All player interactions must remain professional.</li>
+          <li>Escalating issues must be reported to management if widespread.</li>
+          <li>Staff may not use commands for personal gain, trolling, or helping friends.</li>
+          <li>All actions must be documented if requested.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Hierarchy & Responsibilities -->
+    <section class="bg-gray-800 rounded-2xl shadow-lg p-6 border-l-8 border-yellow-500">
+      <button onclick="toggleCollapse('hierarchy')" class="w-full flex items-center justify-between focus:outline-none">
+        <div class="flex items-center mb-3">
+          <svg class="h-6 w-6 text-yellow-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 3v4h14V3H5zm0 6v12h14V9H5z"/>
+          </svg>
+          <h2 class="text-2xl font-bold text-yellow-300">Hierarchy & Responsibilities</h2>
+        </div>
+        <span class="text-yellow-300 font-bold">▼</span>
+      </button>
+      <div id="hierarchy" class="collapse-content mt-2 text-gray-200 space-y-2">
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Helpers:</strong> Answer player questions, report bugs. Permissions: Warn, Kick, Mute.</li>
+          <li><strong>JrMods:</strong> Handle exploiters, ban-worthy issues. Permissions: Warn, Kick, Mute, Ban, System Access.</li>
+          <li><strong>Mods:</strong> Guide Helpers & JrMods, fully understand rules and mechanics.</li>
+          <li><strong>SrMods:</strong> Mentor lower staff, accountable for their training, reviewed for Admin promotion.</li>
+          <li><strong>Admins & Higher:</strong> Handle all issues, oversee staff compliance. Leaking info → demotion/removal.</li>
         </ul>
       </div>
     </section>
@@ -95,46 +135,23 @@
       </div>
     </section>
 
-    <!-- Professional Interaction Rules -->
-    <section class="bg-gray-800 rounded-2xl shadow-lg p-6 border-l-8 border-green-500">
-      <button onclick="toggleCollapse('interaction')" class="w-full flex items-center justify-between focus:outline-none">
+    <!-- Activity & Inactivity -->
+    <section class="bg-gray-800 rounded-2xl shadow-lg p-6 border-l-8 border-teal-500">
+      <button onclick="toggleCollapse('activity')" class="w-full flex items-center justify-between focus:outline-none">
         <div class="flex items-center mb-3">
-          <svg class="h-6 w-6 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          <svg class="h-6 w-6 text-teal-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3"/>
           </svg>
-          <h2 class="text-2xl font-bold text-green-300">Professional Interaction Rules</h2>
+          <h2 class="text-2xl font-bold text-teal-300">Activity & Inactivity</h2>
         </div>
-        <span class="text-green-300 font-bold">▼</span>
+        <span class="text-teal-300 font-bold">▼</span>
       </button>
-      <div id="interaction" class="collapse-content mt-2 text-gray-200 space-y-2">
+      <div id="activity" class="collapse-content mt-2 text-gray-200 space-y-2">
         <ul class="list-disc pl-6 space-y-2">
-          <li>Staff cannot ignore players or ongoing issues.</li>
-          <li>All player interactions must remain professional.</li>
-          <li>Escalating issues must be reported to management if widespread.</li>
-          <li>Staff may not use commands for personal gain, trolling, or friends.</li>
-          <li>All actions must be documented if requested.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Hierarchy & Responsibilities -->
-    <section class="bg-gray-800 rounded-2xl shadow-lg p-6 border-l-8 border-yellow-500">
-      <button onclick="toggleCollapse('hierarchy')" class="w-full flex items-center justify-between focus:outline-none">
-        <div class="flex items-center mb-3">
-          <svg class="h-6 w-6 text-yellow-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 3v4h14V3H5zm0 6v12h14V9H5z"/>
-          </svg>
-          <h2 class="text-2xl font-bold text-yellow-300">Hierarchy & Responsibilities</h2>
-        </div>
-        <span class="text-yellow-300 font-bold">▼</span>
-      </button>
-      <div id="hierarchy" class="collapse-content mt-2 text-gray-200 space-y-2">
-        <ul class="list-disc pl-6 space-y-2">
-          <li><strong>Helpers:</strong> Answer player questions, report bugs. Permissions: Warn, Kick, Mute.</li>
-          <li><strong>JrMods:</strong> Handle exploiters, ban-worthy issues. Permissions: Warn, Kick, Mute, Ban, System Access.</li>
-          <li><strong>Mods:</strong> Guide Helpers & JrMods, understand rules and mechanics.</li>
-          <li><strong>SrMods:</strong> Mentor lower staff, accountable for their training, reviewed for Admin promotion.</li>
-          <li><strong>Admins & Higher:</strong> Handle all issues, oversee staff compliance. Leaking info → demotion/removal.</li>
+          <li>No minimum activity required, but management monitors engagement.</li>
+          <li>Inactivity >3 months may result in demotion, with possible reinstatement at last role.</li>
+          <li>Resignation allows potential reinstatement at last role, except SrMods.</li>
+          <li>SrMods must maintain high activity; inactivity may result in demotion with no guaranteed reinstatement.</li>
         </ul>
       </div>
     </section>
@@ -157,27 +174,6 @@
           <li>Mods: All JrMod permissions + authority over Helpers & JrMods</li>
           <li>SrMods: All Mod permissions + mentor lower staff</li>
           <li>Admins+: All permissions + high-level issue resolution</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Activity & Inactivity -->
-    <section class="bg-gray-800 rounded-2xl shadow-lg p-6 border-l-8 border-teal-500">
-      <button onclick="toggleCollapse('activity')" class="w-full flex items-center justify-between focus:outline-none">
-        <div class="flex items-center mb-3">
-          <svg class="h-6 w-6 text-teal-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3"/>
-          </svg>
-          <h2 class="text-2xl font-bold text-teal-300">Activity & Inactivity</h2>
-        </div>
-        <span class="text-teal-300 font-bold">▼</span>
-      </button>
-      <div id="activity" class="collapse-content mt-2 text-gray-200 space-y-2">
-        <ul class="list-disc pl-6 space-y-2">
-          <li>No minimum activity required, but management monitors engagement.</li>
-          <li>Inactivity >3 months may result in demotion, with possible reinstatement at last role.</li>
-          <li>Resignation allows potential reinstatement at last role, except SrMods.</li>
-          <li>SrMods must maintain high activity; inactivity may result in demotion with no guaranteed reinstatement.</li>
         </ul>
       </div>
     </section>
