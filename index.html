@@ -1,140 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Nova Network</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+import React from "react";
+import Hero from "../components/Hero";
+import Features from "../components/Features";
+import Store from "../components/Store";
+import ChatWidget from "../components/ChatWidget";
 
-<header class="navbar">
-  <div class="logo">Nova Network</div>
-  <nav class="nav-right">
-    <a onclick="showSection('home')" class="active">Home</a>
-    <a onclick="showSection('games')">Games</a>
-    <a onclick="showSection('leaderboards')">Leaderboards</a>
-    <a onclick="showSection('wiki')">Wiki</a>
-    <a onclick="showSection('rules')">Rules & Policies</a>
-    <a onclick="showSection('store')">Store</a>
-    <a onclick="showSection('play')" class="btn">Play Now</a>
-    <a onclick="showSection('login')">Login</a>
-    <a onclick="showSection('signup')">Signup</a>
-  </nav>
-</header>
-
-<!-- ================== SECTIONS ================== -->
-<section id="home" class="section active hero">
-  <div class="container">
-    <h1>Welcome to <span>Nova Network</span></h1>
-    <p>Next-generation Minecraft network for competitive and community play.</p>
-    <div class="hero-buttons">
-      <button class="primary" onclick="showSection('play')">Play Now</button>
-      <button class="secondary" onclick="showSection('rules')">View Rules</button>
+export default function Home() {
+  return (
+    <div>
+      <Hero />
+      <Features />
+      <Store />
+      <ChatWidget />
     </div>
-  </div>
-</section>
-
-<section id="games" class="section">
-  <div class="container">
-    <h2>Our Games</h2>
-    <div class="cards">
-      <div class="card"><h3>Skyblock</h3><p>Custom islands, economy, and events.</p></div>
-      <div class="card"><h3>Prison</h3><p>Rank up, mine, and dominate the server.</p></div>
-      <div class="card"><h3>Survival</h3><p>Classic survival with community features.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="leaderboards" class="section">
-  <div class="container">
-    <h2>Leaderboards</h2>
-    <div class="cards">
-      <div class="card"><h3>Top Skyblock Players</h3><p>Placeholder</p></div>
-      <div class="card"><h3>Top Prison Ranks</h3><p>Placeholder</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="wiki" class="section">
-  <div class="container">
-    <h2>Wiki & Guides</h2>
-    <div class="cards">
-      <div class="card"><h3>Skyblock Guide</h3><p>Placeholder</p></div>
-      <div class="card"><h3>Prison Guide</h3><p>Placeholder</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="rules" class="section">
-  <div class="container">
-    <h2>Server Rules & Policies</h2>
-    <div class="rules-box">
-      <ul>
-        <li>No cheating or exploits</li>
-        <li>Respect all players and staff</li>
-        <li>No harassment, hate speech, threats</li>
-        <li>Staff decisions are final</li>
-      </ul>
-      <p class="rules-note">Full rules available on Discord</p>
-    </div>
-  </div>
-</section>
-
-<section id="store" class="section">
-  <div class="container">
-    <h2>Store</h2>
-    <div class="cards">
-      <div class="card"><h3>Cosmetics</h3><p>Skins, pets, particles</p></div>
-      <div class="card"><h3>Ranks</h3><p>Boost your gameplay with exclusive ranks</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="play" class="section">
-  <div class="container">
-    <h2>Play Nova Network</h2>
-    <div class="play-box">
-      <h3>Server IP</h3>
-      <p><strong>play.novanetwork.com</strong></p>
-      <button onclick="copyIP()">Copy IP</button>
-    </div>
-    <div class="cards" style="margin-top:30px;">
-      <div class="card"><h3>Live Minecraft Count</h3><p id="mc-count">Players online: 0</p></div>
-      <div class="card"><h3>Discord Status</h3><p id="discord-count">Members online: 0</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="login" class="section">
-  <div class="container">
-    <h2>Login</h2>
-    <div class="form-box">
-      <input type="text" placeholder="Username">
-      <input type="password" placeholder="Password">
-      <button>Login</button>
-    </div>
-  </div>
-</section>
-
-<section id="signup" class="section">
-  <div class="container">
-    <h2>Signup</h2>
-    <div class="form-box">
-      <input type="text" placeholder="Username">
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <button>Signup</button>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <p>© 2026 Nova Network. All rights reserved.</p>
-  <p>Not affiliated with Mojang or Microsoft.</p>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+  );
+}
