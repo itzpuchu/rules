@@ -1,16 +1,25 @@
-import React from "react";
-import Hero from "../components/Hero";
-import Features from "../components/Features";
-import Store from "../components/Store";
-import ChatWidget from "../components/ChatWidget";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Moderation Dashboard</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav>
+<h1>GitHub Mod Dashboard</h1>
+<ul>
+<li><a href="bans.html">Bans</a></li>
+<li><a href="warnings.html">Warnings</a></li>
+<li><a href="kicks.html">Kicks</a></li>
+<li><a href="mutes.html">Mutes</a></li>
+</ul>
+</nav>
 
-export default function Home() {
-  return (
-    <div>
-      <Hero />
-      <Features />
-      <Store />
-      <ChatWidget />
-    </div>
-  );
-}
+
+<main>
+<h2>Welcome</h2>
+<p>Select a category to view moderation actions.</p>
+</main>
+</body>
+</html>
